@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050507" />
+  <title>Jhonatan Peterson — Imobiliária de Alto Padrão</title>
+  <meta name="description" content="Imóveis de alto padrão com curadoria, estratégia e atendimento premium." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Cinzel */
+    @font-face {
+      font-family: "Cinzel";
+      src: url("./assets-fonts/Cinzel-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Cinzel";
+      src: url("./assets-fonts/Cinzel-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Cinzel";
+      src: url("./assets-fonts/Cinzel-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Lora */
+    @font-face {
+      font-family: "Lora";
+      src: url("./assets-fonts/Lora-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lora";
+      src: url("./assets-fonts/Lora-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lora";
+      src: url("./assets-fonts/Lora-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lora";
+      src: url("./assets-fonts/Lora-MediumItalic.ttf") format("truetype");
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lora";
+      src: url("./assets-fonts/Lora-BoldItalic.ttf") format("truetype");
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+
+    :root {
+      --bg: #050507;
+      --bg-2: #07060e;
+      --panel: rgba(12, 12, 12, 0.62);
+      --panel-2: rgba(0, 0, 0, 0.32);
+      --stroke: rgba(212, 178, 106, 0.20);
+      --stroke-2: rgba(212, 178, 106, 0.14);
+      --text: rgba(242, 242, 242, 0.94);
+      --muted: rgba(242, 242, 242, 0.70);
+
+      --gold-1: #fff2c9;
+      --gold-2: #d4b26a;
+      --gold-3: #a9782d;
+
+      --ok: #34d399;
+      --shadow: rgba(0, 0, 0, 0.55);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --wrap: 1120px;
+      --pad: clamp(16px, 3vw, 28px);
+
+      --focus: rgba(255, 242, 201, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Lora", serif;
+    }
+
+    h1,
+    h2,
+    h3,
+
+    .brand {
+      font-family: "Cinzel", serif;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 18px 180px;
+      min-height: 100vh;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1500px 1500px at 30% 10%, rgba(212, 178, 106, 0.28), transparent 58%), radial-gradient(1500px 1500px at 75% 10%, rgba(130, 110, 32, 0.54), transparent 60%), radial-gradient(900px 650px at 50% 110%, rgba(212, 178, 106, 0.49), transparent 55%), linear-gradient(180deg, #1b180d, var(--bg));
+      overflow-x: hidden;
+    }
+
+    /* Subtle “Volynx-like” stardust texture (no image required) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 32%, rgba(255, 255, 255, 0.08) 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 78%, rgba(255, 255, 255, 0.06) 0 1px, transparent 2px),
+        radial-gradient(circle at 85% 72%, rgba(255, 255, 255, 0.06) 0 1px, transparent 2px);
+      background-size: 420px 320px;
+      opacity: 0.22;
+      transform: translateZ(0);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--stroke);
+      z-index: 100;
+    }
+
+    .skip:focus {
+      left: 12px;
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      width: min(var(--wrap), calc(100% - (var(--pad) * 2)));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 22px 70px var(--shadow);
+    }
+
+    .soft-glass {
+      background: var(--panel-2);
+      border: 1px solid var(--stroke-2);
+      backdrop-filter: blur(10px);
+    }
+
+    .nome {
+      font-size: 30px;
+      font-weight: 510;
+      letter-spacing: 2.5px;
+      position: absolute;
+      top: 275px;
+      background: radial-gradient(circle at 30% 25%, #f0e79f 0%, #ffeb9a 18%, #a99250 38%, #a98e54 58%, #f2ddb0 78%, #ffeda4 100%);
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      color: black;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nome span {
+      font-size: 25px;
+      letter-spacing: 3px;
+      font-weight: lighter;
+    }
+
+    .nome h1 {
+      margin: 0px 0px;
+      font-size: 35px;
+      line-height: 1;
+      letter-spacing: 2px;
+      background: radial-gradient(circle at 30% 25%, #f0e79f 0%, #ffeb9a 18%, #a99250 38%, #a98e54 58%, #f2ddb0 78%, #ffeda4 100%);
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Header */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+    }
+
+    .brandLockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .brandMark {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 178, 106, 0.32);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 242, 201, 0.52), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(212, 178, 106, 0.30), rgba(0, 0, 0, 0.92) 70%);
+      box-shadow: 0 0 28px rgba(212, 178, 106, 0.16);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: rgba(255, 242, 201, 0.95);
+      text-transform: uppercase;
+      flex: 0 0 auto;
+    }
+
+    .brandText {
+      min-width: 0;
+    }
+
+    .brandText strong {
+      display: block;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brandText span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 64ch;
+    }
+
+    .headerRight {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pillInfo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(242, 242, 242, 0.72);
+    }
+
+    .pillInfo b {
+      color: rgba(255, 242, 201, 0.92);
+      letter-spacing: 0.14em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(255, 242, 201, 0.18);
+      background:
+        linear-gradient(135deg, rgba(8, 8, 10, 0.90), rgba(14, 14, 16, 0.90)) padding-box,
+        linear-gradient(135deg, rgba(255, 242, 201, 0.55), rgba(212, 178, 106, 0.40), rgba(169, 120, 45, 0.34)) border-box;
+      box-shadow: 0 12px 18px inset rgba(0, 0, 0, 0.55);
+      transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .btn:active {
+      transform: translateY(0px);
+      filter: brightness(0.98);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Floating CTA (conversao sem atrito) */
+    .floatCta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      border-radius: 999px;
+      padding: 12px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 242, 201, 0.32);
+      background:
+        linear-gradient(135deg, rgba(8, 8, 10, 0.88), rgba(14, 14, 16, 0.88)) padding-box,
+        linear-gradient(135deg, rgba(255, 242, 201, 0.70), rgba(212, 178, 106, 0.55), rgba(169, 120, 45, 0.45)) border-box;
+      box-shadow: 0 18px 56px rgba(212, 178, 106, 0.18), 0 12px 18px inset rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(10px);
+    }
+
+    .floatCta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .floatCtaDot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.95), rgba(52, 211, 153, 0.20));
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.25);
+    }
+
+    @media (max-width: 560px) {
+      .floatCta {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    .btnPrimary {
+      color: #0b0b0d;
+      border: 1px solid rgba(255, 242, 201, 0.35);
+      background:
+        linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3)) padding-box,
+        linear-gradient(135deg, rgba(255, 242, 201, 0.95), rgba(212, 178, 106, 0.75), rgba(169, 120, 45, 0.65)) border-box;
+      box-shadow: 0 18px 46px rgba(212, 178, 106, 0.16);
+    }
+
+    .btnGhost {
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(212, 178, 106, 0.16);
+      box-shadow: none;
+    }
+
+    /* Top logo area (optional, big logo) */
+    .logoHero {
+      display: grid;
+      place-items: center;
+      padding: 26px 0 8px;
+    }
+
+    .logoHero img {
+      max-width: min(720px, 92vw);
+      max-height: 320px;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter:
+        drop-shadow(0 18px 60px rgba(0, 0, 0, 0.72)) drop-shadow(0 0 18px rgba(212, 178, 106, 0.18));
+    }
+
+    /* Main */
+    main {
+      margin-top: 16px;
+    }
+
+    section[id] {
+      scroll-margin-top: 110px;
+    }
+
+    /* Hero */
+    .hero {
+      border-radius: var(--radius-xl);
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -60% -35%;
+      background:
+        radial-gradient(circle at 18% 26%, rgba(255, 242, 201, 0.18), transparent 55%),
+        radial-gradient(circle at 78% 32%, rgba(212, 178, 106, 0.14), transparent 60%),
+        radial-gradient(circle at 62% 92%, rgba(169, 120, 45, 0.12), transparent 60%);
+      filter: blur(44px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .hero>* {
+      position: relative;
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(242, 242, 242, 0.72);
+      margin: 0 0 10px;
+      font-weight: 800;
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+
+
+    .accent {
+      background: linear-gradient(110deg, var(--gold-1), var(--gold-2), var(--gold-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 62ch;
+      color: rgba(251, 253, 255, 0.78);
+      font-size: clamp(14px, 2.2vw, 18px);
+      line-height: 1.55;
+    }
+
+    .ctaRow {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .pillRow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      border-radius: var(--radius-md);
+      padding: 12px;
+      color: rgba(242, 242, 242, 0.74);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .pill strong {
+      color: rgba(255, 242, 201, 0.92);
+    }
+
+    .sideCard {
+      border-radius: var(--radius-lg);
+      padding: 16px 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: rgba(242, 242, 242, 0.72);
+      margin-bottom: 10px;
+    }
+
+    .tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(212, 178, 106, 0.95), rgba(212, 178, 106, 0.15));
+      box-shadow: 0 0 16px rgba(212, 178, 106, 0.22);
+    }
+
+    .metricList {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .metricList li {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: rgba(242, 242, 242, 0.74);
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-top: 3px;
+      background: radial-gradient(circle, rgba(212, 178, 106, 0.95), rgba(212, 178, 106, 0.16));
+      box-shadow: 0 0 18px rgba(212, 178, 106, 0.22);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 178, 106, 0.55), transparent);
+      opacity: 0.9;
+      margin: 14px 0;
+    }
+
+    .micro {
+      color: rgba(242, 242, 242, 0.64);
+      font-size: 12px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .micro strong {
+      color: rgba(255, 242, 201, 0.92);
+    }
+
+    /* Sections */
+    .section {
+      margin-top: 14px;
+      border-radius: var(--radius-xl);
+      padding: 18px;
+    }
+
+    .sectionHead {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .sectionHead h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .sectionHead p {
+      margin: 0;
+      color: rgba(242, 242, 242, 0.70);
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    .propsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .propCard {
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .propMedia {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(212, 178, 106, 0.18);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 242, 201, 0.16), transparent 55%),
+        linear-gradient(135deg, rgba(8, 8, 10, 0.85), rgba(14, 14, 16, 0.85));
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
+      color: rgba(242, 242, 242, 0.62);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .propMedia img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    .propTitle {
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .propMeta {
+      margin: 0;
+      color: rgba(242, 242, 242, 0.70);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .propPrice {
+      margin: 2px 0 0;
+      font-weight: 800;
+      background: linear-gradient(110deg, var(--gold-1), var(--gold-2), var(--gold-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .propActions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .twoCol {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 16px 14px;
+    }
+
+    .quote {
+      border-left: 3px solid rgba(212, 178, 106, 0.52);
+      padding-left: 12px;
+      color: rgba(242, 242, 242, 0.70);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .foot {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(242, 242, 242, 0.55);
+      font-size: 12px;
+    }
+
+    .back {
+      color: rgba(242, 242, 242, 0.78);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .heroGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .propsGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .twoCol {
+        grid-template-columns: 1fr;
+      }
+
+      .brandText strong,
+      .brandText span {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header {
+        position: static;
+      }
+
+      section[id] {
+        scroll-margin-top: 18px;
+      }
+
+      .logoHero {
+        padding-top: 18px;
+      }
+
+      .pillRow {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .headerRight {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn {
+        transition: none;
+      }
+
+      .btn:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Pular para conteúdo</a>
+
+  <div class="wrap">
+    <!-- Logo grande (opcional). Se quiser remover, apague esta seção inteira. -->
+    <div class="logoHero" aria-label="Logo Jhonatan Peterson">
+      <img src="/assets/parisnez-logo.webp" alt="Jhonatan Peterson" />
+      <div class="nome">
+        <h1>JHONATAN P. E. SANTO</h1>
+        <span aria-hidden="true">•</span>
+        <span>Gestor Imobiliário</span>
+
+        <p>CRECI 258531</p>
+      </div>
+    </div>
+
+    <!-- Header premium / Volynx-like (sem posicionamento travado) -->
+    <header class="header glass" id="top">
+      <a class="brandLockup" href="#top" aria-label="Voltar ao topo">
+        <div class="brandMark" aria-hidden="true">JP</div>
+        <div class="brandText">
+          <strong>Jhonatan Peterson</strong>
+          <span>Imobiliária de alto padrão • curadoria, estratégia e negociação premium.</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegação">
+        <a class="btn btnGhost" href="#propriedades">Propriedades</a>
+        <a class="btn btnGhost" href="#diferenciais">Diferenciais</a>
+        <a class="btn btnPrimary" href="#contato">Falar agora</a>
+      </nav>
+  </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero glass" id="contato" aria-label="Apresentação">
+      <p class="kicker">Alto padrão • Confiança • Conversão</p>
+
+      <div class="heroGrid">
+        <div>
+          <h1>
+            Seu próximo imóvel <span class="accent">alto padrão</span> com curadoria e negociação no nível certo.
+          </h1>
+          <p class="lead">
+            Atendimento 1:1, seleção criteriosa e estratégia de compra/venda para reduzir ruído e acelerar decisão.
+            Aqui não tem tour infinito — tem direcionamento com propósito.
+          </p>
+
+          <div class="ctaRow" aria-label="Chamadas para ação">
+            <!-- Troque o número do WhatsApp abaixo -->
+            <a class="btn btnPrimary" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+            <a class="btn" href="#propriedades">Ver propriedades</a>
+            <a class="btn btnGhost" href="#diferenciais">Ver como funciona</a>
+          </div>
+
+          <div class="pillRow">
+            <div class="pill soft-glass"><strong>Curadoria de imóveis</strong><br />Só o que faz sentido pro seu
+              perfil.</div>
+            <div class="pill soft-glass"><strong>Negociação estratégica</strong><br />Valor, timing e segurança no
+              contrato.</div>
+            <div class="pill soft-glass"><strong>Atendimento premium</strong><br />Rápido, direto, sem enrolação.
+            </div>
+          </div>
+        </div>
+
+        <aside class="sideCard soft-glass" aria-label="Resumo do método">
+          <div class="tag">KPIs de decisão</div>
+          <ul class="metricList">
+            <li><span class="dot"></span><span><strong>Menos visitas</strong> (mais filtro, menos ruído)</span></li>
+            <li><span class="dot"></span><span><strong>Mais assertividade</strong> (opções no seu perfil)</span></li>
+            <li><span class="dot"></span><span><strong>Fechamento mais rápido</strong> (timing + negociação)</span>
+            </li>
+          </ul>
+          <div class="divider"></div>
+          <p class="micro">
+            Método simples: <strong>briefing</strong> → <strong>curadoria</strong> → <strong>visitas
+              objetivas</strong> → <strong>assinatura segura</strong>.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROPRIEDADES -->
+    <section class="section soft-glass" id="propriedades" aria-label="Propriedades em destaque">
+      <div class="sectionHead">
+        <h2>Propriedades em destaque</h2>
+        <p>2–3 opções para você sentir o padrão. Clique e peça detalhes no WhatsApp com mensagem pronta.</p>
+      </div>
+
+      <div class="propsGrid">
+        <article class="propCard soft-glass">
+          <div class="propMedia" aria-label="Imagem da propriedade">
+            <!-- Se tiver foto: descomente e aponte pro arquivo/URL
+              <img src="/assets/propriedades/apto-185.webp" alt="Apartamento 185m²" />
+              -->
+            <span>Adicionar foto</span>
+          </div>
+          <p class="propTitle">Apartamento — 3 suítes — 185m²</p>
+          <p class="propMeta">Vila Nova • 2 vagas • Vista livre</p>
+          <p class="propPrice">R$ 2.450.000</p>
+          <div class="propActions">
+            <a class="btn btnPrimary"
+              href="https://wa.me/5500000000000?text=Quero%20detalhes%20do%20Apartamento%203%20su%C3%ADtes%20185m%C2%B2%20(Vila%20Nova)"
+              target="_blank" rel="noopener noreferrer">
+              Solicitar detalhes
+            </a>
+            <a class="btn btnGhost" href="#"
+              onclick="alert('Linke para /propriedades/apto-185 ou abra um modal.'); return false;">Ver mais</a>
+          </div>
+        </article>
+
+        <article class="propCard soft-glass">
+          <div class="propMedia" aria-label="Imagem da propriedade">
+            <span>Adicionar foto</span>
+          </div>
+          <p class="propTitle">Casa — 4 dormitórios — 320m²</p>
+          <p class="propMeta">Condomínio fechado • Piscina • Gourmet</p>
+          <p class="propPrice">R$ 3.980.000</p>
+          <div class="propActions">
+            <a class="btn btnPrimary"
+              href="https://wa.me/5500000000000?text=Quero%20detalhes%20da%20Casa%204%20dormit%C3%B3rios%20320m%C2%B2%20(Condom%C3%ADnio%20fechado)"
+              target="_blank" rel="noopener noreferrer">
+              Solicitar detalhes
+            </a>
+            <a class="btn btnGhost" href="#"
+              onclick="alert('Linke para detalhes/galeria desta propriedade.'); return false;">Ver mais</a>
+          </div>
+        </article>
+
+        <article class="propCard soft-glass">
+          <div class="propMedia" aria-label="Imagem da propriedade">
+            <span>Adicionar foto</span>
+          </div>
+          <p class="propTitle">Cobertura — 2 suítes — 160m²</p>
+          <p class="propMeta">Terraço • Jacuzzi • 2 vagas</p>
+          <p class="propPrice">R$ 2.890.000</p>
+          <div class="propActions">
+            <a class="btn btnPrimary"
+              href="https://wa.me/5500000000000?text=Quero%20detalhes%20da%20Cobertura%202%20su%C3%ADtes%20160m%C2%B2"
+              target="_blank" rel="noopener noreferrer">
+              Solicitar detalhes
+            </a>
+            <a class="btn btnGhost" href="#" onclick="alert('Você pode abrir um modal aqui.'); return false;">Ver
+              mais</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="divider" style="margin-top: 16px;"></div>
+
+      <div class="twoCol">
+        <div class="card soft-glass">
+          <div class="tag">Processo</div>
+          <h2 style="margin:0 0 10px; font-size:16px; letter-spacing:-0.01em;">Como a curadoria reduz atrito</h2>
+          <ul class="metricList">
+            <li><span class="dot"></span><span><strong>Briefing inteligente:</strong> perfil, região, orçamento e
+                timing.</span></li>
+            <li><span class="dot"></span><span><strong>Seleção estratégica:</strong> liquidez, qualidade e
+                custo-benefício real.</span></li>
+            <li><span class="dot"></span><span><strong>Visitas objetivas:</strong> roteiro eficiente para decidir com
+                confiança.</span></li>
+            <li><span class="dot"></span><span><strong>Fechamento seguro:</strong> suporte até a assinatura.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card soft-glass">
+          <div class="tag">Atalho rápido</div>
+          <h2 style="margin:0 0 10px; font-size:16px; letter-spacing:-0.01em;">Quer a lista completa?</h2>
+          <p class="quote">Me diga bairro + metragem + faixa de valor. Eu retorno com as melhores opções disponíveis.
+          </p>
+          <a class="btn btnPrimary"
+            href="https://wa.me/5500000000000?text=Quero%20a%20lista%20completa%20de%20propriedades.%20Meu%20perfil%3A%20"
+            target="_blank" rel="noopener noreferrer" style="margin-top: 12px;">
+            Pedir lista completa
+          </a>
+          <p class="micro" style="margin-top:10px;">Se preferir, envio <strong>3 opções</strong> com fotos e mapa
+            (curadoria rápida).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="section soft-glass" id="diferenciais" aria-label="Diferenciais">
+      <div class="sectionHead">
+        <h2>Diferenciais</h2>
+        <p>Experiência premium com execução enxuta: sem enrolação, com governança na negociação.</p>
+      </div>
+
+      <div class="twoCol">
+        <div class="card soft-glass">
+          <div class="tag">O que você recebe</div>
+          <h2 style="margin:0 0 10px; font-size:16px; letter-spacing:-0.01em;">Processo enxuto. Experiência premium.
+            Resultado.</h2>
+          <ul class="metricList">
+            <li><span class="dot"></span><span><strong>Visão de mercado:</strong> preço, liquidez e risco de cada
+                opção.</span></li>
+            <li><span class="dot"></span><span><strong>Negociação firme:</strong> estratégia sem desgaste.</span></li>
+            <li><span class="dot"></span><span><strong>Documentação segura:</strong> checklist e
+                acompanhamento.</span></li>
+            <li><span class="dot"></span><span><strong>Comunicação limpa:</strong> objetividade para acelerar
+                decisão.</span></li>
+          </ul>
+        </div>
+
+        <div class="card soft-glass">
+          <div class="tag">Prova</div>
+          <h2 style="margin:0 0 10px; font-size:16px; letter-spacing:-0.01em;">Depoimento (exemplo)</h2>
+          <p class="quote">“A curadoria economizou semanas. Visitamos poucas opções, todas certeiras. Negociação firme
+            e transparente — fechamos com segurança.”</p>
+          <p class="micro" style="margin-top:10px;">
+            Resultado: <span style="color: var(--ok); font-weight: 800;">mais confiança</span> +
+            <span style="color: rgba(255,242,201,.92); font-weight: 800;">menos atrito</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot" aria-label="Rodapé">
+      <a class="back" href="#top">← voltar</a>
+      <span>
+        Jhonatan Peterson • Imobiliária de Alto Padrão •
+        <span style="color: rgba(255,242,201,.90); font-weight:800;">Golden premium</span>.
+      </span>
+    </footer>
+  </main>
+
+  <!-- CTA flutuante (mobile/desktop) -->
+  <a class="floatCta" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp">
+    <span class="floatCtaDot" aria-hidden="true"></span>
+    WhatsApp
+  </a>
+
+  </div>
+</body>
+
+</html>
