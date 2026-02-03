@@ -195,8 +195,23 @@
       font-size: 14px;
       text-decoration: none;
       color: #f5f5f5;
-      border: 2px solid rgba(255, 255, 255, .4);
-      background: #0b0b0d;
+      border: 2px outset rgba(255, 255, 255, .4);
+      background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
+      transition: background 0.7s ease, color 0.6s ease, border 0.3s ease;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      color: #f5f5f5;
+      border: 2px outset rgba(255, 255, 255, .4);
+      background: linear-gradient(10deg, var(--gold-1), var(--gold-2), var(--gold-3));
       transition: background 0.7s ease, color 0.6s ease, border 0.3s ease;
     }
 
@@ -444,7 +459,7 @@
 
     <!-- LOGO sozinha -->
     <div class="logo" aria-label="Logo Jhonatan Peterson">
-      <img src="./assets/jhonatanlogo.webp" alt="Jhonatan Peterson" />
+      <img src="/assets/jhonatanlogo.webp" alt="Jhonatan Peterson" />
     </div>
 
     <!-- CARD PRINCIPAL (em cima da linha dourada) -->
