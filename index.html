@@ -464,6 +464,32 @@
       color: transparent;
     }
 
+    .prop-title,
+    .prop-meta {
+      color: #fdfcfc;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--gold-2);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s;
+      z-index: 1001;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.8;
+    }
+
     .prop-actions {
       display: flex;
       flex-direction: column;
@@ -730,10 +756,59 @@
         display: block;
       }
     }
+
+    .cta-box {
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-size: auto;
+      background-size: 230% 230%;
+      background-position: 0% 0%;
+      animation: spotlight 8s infinite;
+      opacity: 0.4;
+      mix-blend-mode: plus-lighter;
+      pointer-events: none;
+    }
+
+    @keyframes spotlight {
+
+      0%,
+      10% {
+        background-position: 0% 0%;
+      }
+
+      10%,
+      30% {
+        background-position: 100% 0%;
+      }
+
+      30%,
+      50% {
+        background-position: 100% 100%;
+      }
+
+      50%,
+      70% {
+        background-position: 0% 100%;
+      }
+
+      70%,
+      100% {
+        background-position: 0% 0%;
+      }
+    }
   </style>
 </head>
 
-<body>
+<body class="cta-box">
 
   <div class="wrap">
 
@@ -803,71 +878,7 @@
         <p>Clique para ver detalhes e fotos.</p>
 
         <div class="props">
-          <!-- Card 1 -->
-          <article class="prop">
-            <div class="prop-media">
-              <img src="./assets/FAZENDA/capafazenda.jpeg" alt="capa fazenda" />
-            </div>
-            <div class="prop-body">
-              <h1 class="prop-title">FAZENDA DE ALTO PADRÃO A VENDA EM ITAPETININGA-SP</h1>
-              <div class="prop-meta">Aptidão: Agricultura e Pecuária de Elite</div>
-              <h2 class="prop-price">R$ 60.000.000,00</h2>
-              <div class="prop-actions">
-                <a class="btn primary"
-                  href="https://wa.me/5511993747595?text=Quero%20detalhes%20do%20Apartamento%203%20su%C3%ADtes%20185m%C2%B2%20(Vila%20Nova)"
-                  target="_blank" rel="noopener noreferrer">
-                  Solicitar detalhes
-                </a>
-                <a class="btn" href="#" onclick="openModal('fazenda'); return false;">
-                  Ver mais fotos
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="prop">
-            <div class="prop-media">
-              <img src="./assets/MORADADOSOL2/moradadosol2-1.jpeg" alt="Morada do Sol 2" />
-            </div>
-            <div class="prop-body">
-              <h1 class="prop-title">MANSÃO À VENDA – CONDOMÍNIO MORADA DO SOL</h1>
-              <div class="prop-meta">Design moderno e decoração completa – é só entrar e morar</div>
-              <h2 class="prop-price">R$ 2.000.000,00</h2>
-              <div class="prop-actions">
-                <a class="btn primary"
-                  href="https://wa.me/5511993747595?text=Quero%20detalhes%20da%20Casa%204%20dormit%C3%B3rios%20320m%C2%B2%20(Condom%C3%ADnio%20fechado)"
-                  target="_blank" rel="noopener noreferrer">
-                  Solicitar detalhes
-                </a>
-                <a class="btn" href="#" onclick="openModal('morada-do-sol2'); return false;">
-                  Ver mais
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 (opcional) -->
-          <article class="prop">
-            <div class="prop-media">
-              <img src="./assets/MORADADOSOL1/moradadosolcapa.jpeg" alt="Morada do Sol 1" />
-            </div>
-            <div class="prop-body">
-              <h1 class="prop-title">EXCLUSIVIDADE NO RESIDENCIAL MORADA DO SOL</h1>
-              <div class="prop-meta">Alto padrão, conforto e vista espetacular a apenas 40 minutos de São Paulo</div>
-              <h2 class="prop-price">R$ 3.200.000,00</h2>
-              <div class="prop-actions">
-                <a class="btn primary"
-                  href="https://wa.me/5511993747595?text=Quero%20detalhes%20da%20Cobertura%202%20su%C3%ADtes%20160m%C2%B2"
-                  target="_blank" rel="noopener noreferrer">
-                  Solicitar detalhes
-                </a>
-                <a class="btn" href="#" onclick="openModal('morada-do-sol'); return false;">
-                  Ver mais fotos
-                </a>
-              </div>
-            </div>
-          </article>
+          <!-- Cards dinâmicos serão adicionados aqui -->
         </div>
       </div>
     </section>
@@ -937,110 +948,54 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2 id="modalTitle" style="color: #fff; text-align: center; margin-bottom: 20px;"></h2>
+        <p id="modalDescription" style="color: #fff; white-space: pre-line; margin-bottom: 20px;"></p>
         <div class="modal-images" id="modalImages">
           <!-- Images will be populated by JavaScript -->
         </div>
       </div>
     </div>
 
-    <!-- Fullscreen Image Viewer -->
     <div id="fullscreenViewer" class="modal-fullscreen" style="display: none;">
       <img id="fullscreenImage" src="" alt="Fullscreen" />
     </div>
 
-    <script>
-      // Property data - easily expandable
-      const propertyData = {
-        'morada-do-sol': {
-          title: 'Morada do Sol - Galeria de Fotos',
-          images: [
-            './assets/MORADADOSOL1/moradadosolcapa.jpeg',
-            './assets/MORADADOSOL1/moradadosol1-1.jpeg',
-            './assets/MORADADOSOL1/moradadosol2.jpeg',
-            './assets/MORADADOSOL1/moradadosol3.jpeg',
-            './assets/MORADADOSOL1/moradadosol4.jpeg',
-            './assets/MORADADOSOL1/moradadosol5.jpeg',
-            './assets/MORADADOSOL1/moradadosol6.jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.03 (5).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.03 (6).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.04 (2).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.04 (3).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.04 (4).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.04.jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.05 (1).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.05 (2).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.05 (3).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.05 (4).jpeg',
-            './assets/MORADADOSOL1/WhatsApp Image 2026-02-02 at 19.48.05.jpeg'
-          ]
-        },
-        'morada-do-sol2': {
-          title: 'Morada do Sol 2 - Galeria de Fotos',
-          images: [
-            './assets/MORADADOSOL2/moradadosol2-1.jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.37 (1).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.37 (2).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.37 (3).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.37.jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38 (1).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38 (2).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38 (3).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38 (4).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38 (5).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.38.jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39 (1).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39 (2).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39 (3).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39 (4).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39 (5).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.39.jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.40 (1).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.40 (2).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.40 (3).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.40 (4).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.40.jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (1).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (2).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (3).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (4).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (5).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41 (6).jpeg',
-            './assets/MORADADOSOL2/WhatsApp Image 2026-02-02 at 19.48.41.jpeg'
-          ]
-        },
-        'fazenda': {
-          title: 'Fazenda de Alto Padrão - Galeria de Fotos',
-          images: [
-            './assets/FAZENDA/fazenda1.jpeg',
-            './assets/FAZENDA/fazenda2.jpeg',
-            './assets/FAZENDA/fazenda3.jpeg',
-            './assets/FAZENDA/fazenda4.jpeg',
-            './assets/FAZENDA/fazenda5.jpeg',
-            './assets/FAZENDA/fazenda6.jpeg',
-            './assets/FAZENDA/fazenda7.jpeg',
-            './assets/FAZENDA/fazenda8.jpeg',
-            './assets/FAZENDA/fazenda9.jpeg',
-            './assets/FAZENDA/fazenda10.jpeg',
-            './assets/FAZENDA/fazenda11.jpeg',
-            './assets/FAZENDA/fazenda12.jpeg',
-            './assets/FAZENDA/fazenda13.jpeg',
-            './assets/FAZENDA/fazenda14.jpeg',
-            './assets/FAZENDA/fazenda15.jpeg',
-            './assets/FAZENDA/fazenda16.jpeg',
-            './assets/FAZENDA/fazenda17.jpeg',
-            './assets/FAZENDA/fazenda18.jpeg',
-            './assets/FAZENDA/fazenda19.jpeg',
-            './assets/FAZENDA/fazenda20.jpeg',
-            './assets/FAZENDA/fazenda21.jpeg',
-            './assets/FAZENDA/fazenda22.jpeg'
-          ]
-        }
-      };
+    <!-- Modal for full description -->
+    <div id="descriptionModal" class="modal">
+      <div class="modal-content" style="max-width: 600px;">
+        <span class="close" id="descClose">&times;</span>
+        <h2 id="descTitle" style="color: #fff; text-align: center; margin-bottom: 20px;"></h2>
+        <div id="descText" style="color: #fff; white-space: pre-line; line-height: 1.6;"></div>
+      </div>
+    </div>
 
-      // DOM Elements
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" style="display: none;">▲</button>
+
+    // Property data - easily expandable
+    <script>
+      let propertyData = {};
+
+      async function boot() {
+        const res = await fetch("./data/propertyData.json?v=" + Date.now(), { cache: "no-store" });
+        propertyData = await res.json();
+
+        initGallery();
+      }
+
+      document.addEventListener("DOMContentLoaded", boot);
+
+      function initGallery() {
+      }
+    </script>
+
+
+
+    <!--// DOM Elements//-->
+    <script>
       const modal = document.getElementById('myModal');
       const modalImagesContainer = document.getElementById('modalImages');
       const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
       const closeBtn = document.querySelector('.close');
       const fullscreenViewer = document.getElementById('fullscreenViewer');
       const fullscreenImage = document.getElementById('fullscreenImage');
@@ -1055,6 +1010,9 @@
 
         // Set title
         modalTitle.textContent = property.title;
+
+        // Set description
+        modalDescription.textContent = property.description || '';
 
         // Clear previous images
         modalImagesContainer.innerHTML = '';
@@ -1123,8 +1081,198 @@
       // Close fullscreen on click
       fullscreenViewer.addEventListener('click', closeFullscreen);
 
+      // Description modal
+      const descModal = document.getElementById('descriptionModal');
+      const descClose = document.getElementById('descClose');
+      const descTitle = document.getElementById('descTitle');
+      const descText = document.getElementById('descText');
+
+      function openDescModal(title, text) {
+        descTitle.textContent = title;
+        descText.textContent = text;
+        descModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDescModal() {
+        descModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      descClose.addEventListener('click', closeDescModal);
+
+      window.addEventListener('click', (event) => {
+        if (event.target === descModal) {
+          closeDescModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && descModal.style.display === 'block') {
+          closeDescModal();
+        }
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById('backToTop');
+
+      function updateBackToTop() {
+        const isModalOpen = modal.style.display === 'block';
+        const isDescModalOpen = descModal.style.display === 'block';
+        const modalScrollTop = isModalOpen ? modal.scrollTop : 0;
+        const descModalScrollTop = isDescModalOpen ? descModal.scrollTop : 0;
+        if (window.pageYOffset > 300 || modalScrollTop > 300 || descModalScrollTop > 300) {
+          backToTopBtn.style.display = 'block';
+        } else {
+          backToTopBtn.style.display = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', updateBackToTop);
+      modal.addEventListener('scroll', updateBackToTop);
+      descModal.addEventListener('scroll', updateBackToTop);
+
+      backToTopBtn.addEventListener('click', () => {
+        if (modal.style.display === 'block') {
+          // Scroll modal
+          modal.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        } else if (descModal.style.display === 'block') {
+          // Scroll description modal
+          descModal.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          // Scroll main page
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      });
+
       console.log('Modal system initialized successfully');
     </script>
+    <script>
+      (function () {
+        const container = document.querySelector('#propriedades .props');
+        if (!container) return;
+
+        // IDs que já existem no HTML (pra não duplicar)
+        const existing = new Set();
+        container.querySelectorAll('[onclick*="openModal("]').forEach((el) => {
+          const on = el.getAttribute('onclick') || '';
+          const m = on.match(/openModal\('([^']+)'\)/);
+          if (m && m[1]) existing.add(m[1]);
+        });
+
+        // WhatsApp (pega do seu próprio HTML; fallback se não achar)
+        const waA = document.querySelector('a[href^="https://wa.me/"]');
+        const waNumber = (waA?.href.match(/wa\.me\/(\d+)/)?.[1]) || '5511993747595';
+
+        // Se o ID do JSON for diferente do ID usado no openModal() do seu HTML,
+        // mapeie aqui (opcional). Ex.: { "fazenda-itapetininga": "fazenda" }
+        const ID_ALIAS = {
+          // "fazenda-itapetininga": "fazenda",
+          // "mansao-emilce-morada-do-sol-1": "morada-do-sol2",
+          // "residencial-morada-do-sol-1": "morada-do-sol"
+        };
+
+        function normalize(json) {
+          // Formato: { "properties": [ ... ] }
+          if (json && Array.isArray(json.properties)) return json.properties;
+
+          // Formato: [ ... ]
+          if (Array.isArray(json)) return json;
+
+          // Formato: { "id": {...} } (mapa)
+          if (json && typeof json === 'object') {
+            return Object.entries(json).map(([id, v]) => ({
+              id,
+              name: v.name || v.title || id,
+              price: v.price || '',
+              category: v.category || v.location || '',
+              coverImage: v.coverImage || '',
+              gallery: v.gallery || v.images || []
+            }));
+          }
+
+          return [];
+        }
+
+        function safeSrc(s) {
+          return String(s || '').replace(/ /g, '%20');
+        }
+
+        function buildCard(p) {
+          const idFromJson = String(p.id || '').trim();
+          if (!idFromJson) return null;
+
+          // ID usado no openModal
+          const modalId = ID_ALIAS[idFromJson] || idFromJson;
+
+          // Se já tem card com esse modalId no HTML, não cria outro
+          if (existing.has(modalId)) return null;
+
+          const name = p.name || p.title || modalId;
+          const category = p.category || p.location || '';
+          const fullDescription = p.meta || category;
+          const shortDescription = fullDescription.split('.')[0] + '.' || fullDescription;
+          const price = p.price || '';
+          const cover = p.coverImage || (p.gallery && p.gallery[0]) || (p.images && p.images[0]) || '';
+          const msg = p.whatsappMessage || ('Quero detalhes de: ' + name);
+
+          const article = document.createElement('article');
+          article.className = 'prop';
+          article.innerHTML = `
+                <div class="prop-media">
+                  <img src="${safeSrc(cover)}" alt="${name}">
+                </div>
+                <div class="prop-body">
+                  <h1 class="prop-title">${name}</h1>
+                  <div class="prop-meta">${shortDescription}</div>
+                  <h2 class="prop-price">${price}</h2>
+                  <div class="prop-actions">
+                    <a class="btn primary"
+                      href="https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}"
+                      target="_blank" rel="noopener noreferrer">
+                      Solicitar detalhes
+                    </a>
+                    <a class="btn" href="#" onclick="openDescModal('${name.replace(/'/g, "\\'")}', '${fullDescription.replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/"/g, '\\"')}'); return false;">
+                      Ver descrição completa
+                    </a>
+                    <a class="btn" href="#" onclick="openModal('${modalId.replace(/'/g, "\\'")}'); return false;">
+                      Ver mais fotos
+                    </a>
+                  </div>
+                </div>
+              `;
+          return article;
+        }
+
+        fetch('./data/properties.json?v=' + Date.now(), { cache: 'no-store' })
+          .then((r) => {
+            if (!r.ok) throw new Error('Não consegui carregar ./data/properties.json');
+            return r.json();
+          })
+          .then((json) => {
+            const props = normalize(json);
+
+            const frag = document.createDocumentFragment();
+            props.forEach((p) => {
+              const card = buildCard(p);
+              if (card) frag.appendChild(card);
+            });
+
+            container.appendChild(frag);
+          })
+          .catch((e) => console.error(e));
+      })();
+    </script>
+
 </body>
 
 </html>
