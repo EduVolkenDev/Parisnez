@@ -18,20 +18,6 @@
   RESET + VARIÁVEIS
   ========================= */
 
-    /* 
-╔══════════════════════════════════════════════════════════════╗
-║                                                              ║
-║   🎨 Jhonatan Peterson Imóveis - Stylesheet                 ║
-║                                                              ║
-║   Este arquivo contém TODO o estilo visual do site.          ║
-║   NÃO EDITE este arquivo a menos que seja desenvolvedor!     ║
-║                                                              ║
-║   Para gerenciar propriedades, edite:                        ║
-║   → properties.json (arquivo principal para o cliente)        ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
-*/
-
     @font-face {
       font-family: "Poppins";
       src: url("./assets-fonts/Poppins-Light.ttf") format("truetype");
@@ -131,9 +117,10 @@
       --gold-1: #fff2c9;
       --gold-2: #d4b26a;
       --gold-3: #a9782d;
+      --gold-dark: #4a3413;
 
       --ok: #34d399;
-      --shadow: rgba(0, 0, 0, .45);
+      --shadow: rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -144,47 +131,19 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Lato", sans-serif;
+      font-family: "Poppins", "Work Sans", system-ui, sans-serif;
       font-weight: 400;
-    }
-
-    :root {
-      --bg: #050507;
-      --panel: rgba(12, 12, 12, 0.62);
-      --stroke: rgba(212, 178, 106, 0.20);
-      --text: #f2f2f2;
-      --muted: rgba(242, 242, 242, 0.74);
-
-      --gold-1: #fff2c9;
-      --gold-2: #d4b26a;
-      --gold-3: #a9782d;
-
-      --ok: #34d399;
-      --shadow: rgba(0, 0, 0, .45);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Lato", sans-serif;
-      font-weight: 400;
+      background: var(--bg);
+      color: var(--text);
     }
 
     body {
       min-height: 100dvh;
-      font-family: 'Lato', system-ui, sans-serif;
-      color: var(--text);
       overflow-x: hidden;
       width: 100%;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      margin: 0;
       background-image: url("./assets/imobiliariabg.webp");
     }
 
@@ -192,13 +151,22 @@
     h2,
     h3,
     h4 {
-      font-family: "Lato", sans-serif;
+      font-family: "Poppins", "Work Sans", sans-serif;
       font-weight: 700;
+      margin: 0;
     }
 
     p {
-      font-family: "Lato", sans-serif;
-      font-style: italic;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
     }
 
     /* =========================
@@ -206,9 +174,68 @@
   ========================= */
 
     .wrap {
-      width: 100%;
-      max-width: 100%;
-      padding: 18px 14px 32px;
+      width: auto;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* =========================
+  HEADER
+  ========================= */
+
+    .header {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(212, 178, 106, 0.15);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-container .jp-icon {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-container .jp-icon img {
+      width: 50px;
+      height: auto;
+    }
+
+    .nav-container nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-container nav a {
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-container nav a:hover {
+      background: rgba(212, 178, 106, 0.2);
+      border-color: var(--gold-2);
     }
 
     /* =========================
@@ -216,132 +243,121 @@
   ========================= */
 
     .logo {
-      padding: 0;
-      width: auto;
-      min-height: 100%;
-      border: 2px inset #ede183;
-      background: #ffffff1f;
-      backdrop-filter: blur(5px);
-      border-radius: 25px;
-      margin-bottom: 30px;
+      text-align: center;
+      margin: 30px 0;
     }
 
     .logo img {
-      max-width: 100%;
-      display: block;
-      filter: contrast(1.3) blur(0.3px);
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     /* =========================
-  HEADER / BRAND CARD
+  BRAND CARD
   ========================= */
 
     .brand-card {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, .3);
-      border: 1px solid rgba(246, 214, 146, .43);
-      backdrop-filter: blur(8px);
-      margin-bottom: 18px;
+      gap: 20px;
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(246, 214, 146, 0.3);
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
     }
 
     .brand {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      text-align: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .mark {
-      border-radius: 30%;
+      border-radius: 50%;
       display: flex;
-      place-items: center;
-      border: 2px inset rgb(212, 178, 106);
-      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--gold-2);
+      padding: 5px;
+      background: rgba(212, 178, 106, 0.1);
     }
 
     .mark img {
-      width: 60px;
+      width: 50px;
       height: auto;
-      filter: brightness(1.4);
     }
 
     .brand-text {
-      display: grid;
-      width: auto;
-      height: auto;
+      text-align: center;
     }
 
     .brand-text strong {
-      font-size: 15px;
-      letter-spacing: 0.22em;
+      font-size: 18px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      color: var(--gold-1);
+      display: block;
+      margin-bottom: 4px;
     }
 
     .brand-text span {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--muted);
-      font-style: italic;
+      font-style: normal;
     }
-
-    /* =========================
-  NAV
-  ========================= */
 
     .nav {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
+
+    /* =========================
+  BUTTONS
+  ========================= */
 
     .btn {
-      display: grid;
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 600;
       font-size: 14px;
       text-decoration: none;
-      color: #f5f5f5;
-      border: 2px outset rgba(255, 255, 255, .4);
-      background: linear-gradient(170deg, #eeb500, #ddcca9, #925700);
-      transition: color 0.6s ease, border 0.7s ease;
-      text-shadow: 0 0 5px black, 0 0 8px black;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
       cursor: pointer;
-    }
-
-    .btn-primary {
-      display: grid;
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 14px;
-      text-decoration: none;
-      color: #f5f5f5;
-      border: 2px outset rgba(255, 255, 255, .4);
-      background: linear-gradient(10deg, var(--gold-1), var(--gold-2), var(--gold-3));
-      transition: background 0.7s ease, color 0.6s ease, border 0.3s ease;
-      cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn:hover {
-      color: black;
-      border: 2px inset #e1d9d9;
-      background: linear-gradient(120deg, #030300 0%, #f6c506 50%, #030300 100%);
-      text-shadow: 0 0 5px white;
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--gold-2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 178, 106, 0.2);
     }
 
-    .btn.primary:hover {
-      background: linear-gradient(120deg, #030300 0%, #f6c506 50%, #030300 100%);
-      border: 2px inset #f7f0be54;
-      text-shadow: 0 0 5px white;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
+      color: #1a1a1a;
+      border: none;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold-2), var(--gold-1), var(--gold-2));
+      box-shadow: 0 6px 20px rgba(212, 178, 106, 0.4);
     }
 
     /* =========================
@@ -349,469 +365,286 @@
   ========================= */
 
     .hero {
-      padding: 20px 20px;
-      border-radius: 22px;
-      background: var(--panel);
-      border: 2px outset rgba(212, 178, 106, 0.36);
-      margin-bottom: 18px;
-      backdrop-filter: blur(3px);
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 178, 106, 0.25);
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
     }
 
     .kicker {
-      font-size: 11px;
-      letter-spacing: .14em;
+      font-size: 12px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: .7;
-      font-style: italic;
+      opacity: 0.7;
+      color: var(--gold-2);
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 50px;
-      line-height: 1.1;
-      margin: 5px auto;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.2;
+      margin: 10px 0 20px;
     }
 
     .accent {
       background: linear-gradient(110deg, var(--gold-1), var(--gold-2), var(--gold-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       background-clip: text;
-      color: transparent;
     }
 
     .lead {
-      font-size: 15px;
-      line-height: 1.55;
-      opacity: .8;
+      font-size: 16px;
+      line-height: 1.7;
+      opacity: 0.85;
+      max-width: 700px;
+      margin-bottom: 20px;
     }
 
     .hero-cta {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
     }
 
     /* =========================
-  PILLS
+  PILLS / FEATURES
   ========================= */
 
     .pill-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin: 18px 10px;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
     }
 
     .pill {
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(0, 0, 0, .28);
-      border: 3px inset rgba(212, 178, 106, 0.50);
-      font-size: 13px;
-      backdrop-filter: blur(3px);
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(212, 178, 106, 0.25);
+      font-size: 14px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
     }
 
-    .micro {
-      text-align: center;
+    .pill:hover {
+      border-color: var(--gold-2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .pill strong {
+      display: block;
+      color: var(--gold-1);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .pill span {
+      opacity: 0.8;
+      font-size: 13px;
     }
 
     /* =========================
-  GRID / CARDS
+  CARDS & SECTIONS
   ========================= */
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
-      margin-bottom: 15px;
-    }
-
     .card {
-      padding: 15px;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, .26);
-      border: 2px outset rgba(212, 178, 106, 0.36);
-      margin-bottom: 15px;
-      backdrop-filter: blur(3px);
-      max-width: 100%;
-      width: auto;
-      margin: auto;
-      height: auto;
-      min-width: 0;
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(212, 178, 106, 0.2);
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
     }
 
     .tag {
-      font-size: 11px;
-      letter-spacing: .20em;
+      font-size: 14px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font-weight: 600;
+      color: var(--gold-2);
+      text-align: center;
+      padding: 10px 20px;
+      background: rgba(212, 178, 106, 0.1);
+      border-radius: 30px;
+      display: inline-block;
     }
 
-    .depo-tag {
-      font-size: 25px;
-      font-family: "Lato", sans-serif;
-      font-style: italic;
+    .section-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      opacity: 0.7;
+      font-size: 15px;
     }
 
     /* =========================
-  PROPRIEDADES
+  LIST STYLES
   ========================= */
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .list li:last-child {
+      border-bottom: none;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      border-radius: 50%;
+      background: var(--gold-2);
+      margin-top: 7px;
+      box-shadow: 0 0 10px var(--gold-2);
+    }
+
+    .list li span {
+      line-height: 1.6;
+    }
+
+    .list li strong {
+      color: var(--gold-1);
+    }
+
+    /* =========================
+  TESTIMONIALS
+  ========================= */
+
+    .depo-tag {
+      font-size: 22px;
+      font-family: "Poppins", sans-serif;
+      margin-bottom: 20px;
+      color: var(--gold-1);
+    }
+
+    .quote {
+      display: block;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border-left: 3px solid var(--gold-2);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .quote:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+  PROPERTIES
+  ========================= */
+
+    .props {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
 
     .prop {
       display: grid;
       gap: 16px;
-      padding: 25px;
+      padding: 24px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 3px outset rgba(212, 178, 106, 0.45);
-      margin-bottom: 20px;
-      flex-direction: column;
-      backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 178, 106, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .prop:hover {
+      border-color: var(--gold-2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
     }
 
     .prop-media {
-      background: #1110;
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      opacity: .7;
-      max-width: 100%;
-      width: auto;
+      width: 100%;
+      overflow: hidden;
     }
 
     .prop-media img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 15px;
-      border: 3px inset white;
-      width: auto;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .prop:hover .prop-media img {
+      transform: scale(1.03);
+    }
+
+    .prop-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .prop-title {
-      font-weight: 800;
+      font-weight: 700;
+      font-size: 20px;
+      color: #fff;
     }
 
     .prop-meta {
-      font-size: 16px;
-      opacity: .7;
+      font-size: 14px;
+      opacity: 0.7;
+      line-height: 1.5;
     }
 
     .prop-price {
-      margin-top: 8px;
-      font-weight: 800;
-      background: linear-gradient(110deg, var(--gold-1), var(--gold-2), var(--gold-3));
-      background-clip: text;
-      color: transparent;
-    }
-
-    .prop-title,
-    .prop-meta {
-      color: #fdfcfc;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--gold-2);
-      color: #000;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      font-weight: 700;
       font-size: 24px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: opacity 0.3s;
-      z-index: 1001;
-    }
-
-    .back-to-top:hover {
-      opacity: 0.8;
+      background: linear-gradient(110deg, var(--gold-1), var(--gold-2), var(--gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 8px 0;
     }
 
     .prop-actions {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
-    .prop-body {
-      max-width: 100%;
-      width: auto;
-      display: grid;
-      justify-content: center;
-    }
-
-    /* =========================
-  MODAL STYLES - FIXED
-  ========================= */
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      overflow: auto;
-    }
-
-    .modal-content {
-      position: relative;
-      margin: 2% auto;
-      padding: 20px;
-      background-color: #1a1a1a;
-      width: 90%;
-      max-width: 1200px;
-      border-radius: 12px;
-      border: 2px solid var(--gold-2);
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: #fff;
-      font-size: 36px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 1001;
-      transition: color 0.3s ease;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: var(--gold-2);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .modal-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-
-    .modal-images img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .modal-images img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(212, 178, 106, 0.3);
-    }
-
-    .modal-fullscreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      cursor: pointer;
-    }
-
-    .modal-fullscreen img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    /* Mobile-first: adaptação para telas pequenas */
-    @media (max-width: 600px) {
-      .modal-content {
-        width: 95%;
-        margin: 5% auto;
-        padding: 15px;
-      }
-
-      .modal-images img {
-        height: 180px;
-      }
-
-      .close {
-        font-size: 28px;
-        right: 10px;
-      }
-
-      h1 {
-        font-size: 35px;
-        font-weight: 510;
-        text-align: center;
-      }
-    }
-
-    /* Para telas médias (tablets) */
-    @media (min-width: 601px) and (max-width: 1024px) {
-      .modal-content {
-        width: 85%;
-      }
-
-      .modal-images {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      }
-    }
-
-    /* Para telas grandes (desktop) */
-    @media (min-width: 1025px) {
-      .modal-content {
-        width: 80%;
-      }
-
-      .modal-images {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      }
+    .prop-actions .btn {
+      flex: 1;
+      min-width: 140px;
     }
 
     /* =========================
-  FOOTER
+  CTA BOX
   ========================= */
-
-    .foot {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-align: center;
-      font-size: 12px;
-      opacity: .6;
-    }
-
-    /* =========================
-  DESKTOP (>= 960px)
-  ========================= */
-    @media (max-width:959px) {
-      .prop-meta {
-        display: none;
-      }
-    }
-
-    @media (min-width: 960px) {
-
-      .wrap {
-        max-width: 1150px;
-        margin: 0 auto;
-      }
-
-      .brand-card {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .brand {
-        flex-direction: row;
-        text-align: left;
-        width: auto;
-      }
-
-      .nav {
-        flex-direction: row;
-        width: 100%;
-      }
-
-      .btn {
-        align-content: center;
-      }
-
-      .hero-cta {
-        flex-direction: row;
-      }
-
-      .pill-row {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .grid {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .props {
-        max-width: 100vw;
-        width: auto;
-      }
-
-      .prop-actions {
-        display: flex;
-        gap: 10px;
-        max-width: 470px;
-        width: 470px;
-        height: auto;
-        flex-direction: column;
-        place-items: center;
-      }
-
-      .prop {
-        grid-template-columns: 1fr 1.2fr;
-        align-items: center;
-      }
-
-      .prop-media img {
-        max-width: 80%;
-        height: auto;
-        border-radius: 15px;
-        border: 3px inset white;
-        width: 800px;
-      }
-
-      .prop-title {
-        font-weight: 800;
-        font-size: 30px;
-        width: auto;
-      }
-
-      .prop-meta {
-        font-size: 20px;
-        opacity: 0.7;
-        font-family: "Lato", sans-serif;
-        font-style: italic;
-        display: none;
-      }
-
-      .prop-price {
-        font-weight: 800;
-        background: linear-gradient(110deg, var(--gold-1), var(--gold-2), #4a3413);
-        background-clip: text;
-        color: transparent;
-        font-size: 35px;
-        margin: 20px 0;
-        font-style: italic;
-      }
-    }
-
-    @media (min-width: 850px) {
-      .logo {
-        padding: 0;
-        width: auto;
-        min-height: 100%;
-      }
-
-
-      .logo img {
-        max-width: 100%;
-        display: block;
-      }
-    }
 
     .cta-box {
       position: relative;
@@ -822,66 +655,345 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
-      background-position-x: 0%;
-      background-position-y: 0%;
-      background-size: auto;
-      background-size: 230% 230%;
-      background-position: 0% 0%;
-      animation: spotlight 8s infinite;
-      opacity: 0.4;
-      mix-blend-mode: plus-lighter;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
       pointer-events: none;
+      animation: spotlight 10s infinite ease-in-out;
     }
 
     @keyframes spotlight {
 
       0%,
-      10% {
+      100% {
         background-position: 0% 0%;
       }
 
-      10%,
-      30% {
+      25% {
         background-position: 100% 0%;
       }
 
-      30%,
       50% {
         background-position: 100% 100%;
       }
 
-      50%,
-      70% {
+      75% {
         background-position: 0% 100%;
       }
+    }
 
-      70%,
-      100% {
-        background-position: 0% 0%;
+    /* =========================
+  FOOTER
+  ========================= */
+
+    .footer {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 1px solid rgba(212, 178, 106, 0.15);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-2);
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .foot {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 20px;
+    }
+
+    .back {
+      color: var(--gold-2);
+    }
+
+    /* =========================
+  MODAL STYLES
+  ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      overflow: auto;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 3% auto;
+      padding: 30px;
+      background-color: rgba(20, 20, 20, 0.98);
+      width: 90%;
+      max-width: 1100px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 178, 106, 0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 300;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+      line-height: 1;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: var(--gold-2);
+    }
+
+    .modal h2 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .modal p {
+      color: rgba(255, 255, 255, 0.8);
+      white-space: pre-line;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .modal-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .modal-images img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-images img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(212, 178, 106, 0.25);
+    }
+
+    .modal-fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      cursor: pointer;
+    }
+
+    .modal-fullscreen.active {
+      display: flex;
+    }
+
+    .modal-fullscreen img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    #descriptionModal .modal-content {
+      max-width: 600px;
+    }
+
+    /* =========================
+  BACK TO TOP
+  ========================= */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold-3));
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(212, 178, 106, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(212, 178, 106, 0.5);
+    }
+
+    .back-to-top.visible {
+      display: flex;
+    }
+
+    /* =========================
+  RESPONSIVE
+  ========================= */
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-container nav {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .brand-card {
+        padding: 20px;
+      }
+
+      .brand {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 24px 20px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .hero-cta .btn {
+        width: 100%;
+      }
+
+      .props {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+      }
+
+      .modal-images {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .modal-images img {
+        height: 150px;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .brand-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .brand-text {
+        text-align: left;
+      }
+
+      .nav {
+        justify-content: flex-end;
+      }
+
+      .props {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pill-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .props {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .prop-media img {
+        height: 260px;
       }
     }
   </style>
 </head>
 
 <body class="cta-box">
+  <header class="header">
+    <div class="nav-container">
+      <div class="jp-icon">
+        <img src="./assets/jp-icon.png" alt="JP Icon" />
+        <span>— Bem Vindo(a)! Sinta-se em casa!</span>
+      </div>
+      <nav>
+        <a href="about.html">Sobre</a>
+        <a href="contact.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
 
   <div class="wrap">
 
-    <!-- LOGO sozinha -->
+    <!-- LOGO -->
     <div class="logo" aria-label="Logo Jhonatan Peterson">
       <img src="./assets/jhonatanlogo.webp" alt="Jhonatan Peterson" />
     </div>
 
-    <!-- CARD PRINCIPAL (em cima da linha dourada) -->
+    <!-- CARD PRINCIPAL -->
     <header class="brand-card" id="contato">
       <div class="brand">
         <div class="mark">
           <img src="./assets/jp-icon.png" alt="JP Icon" />
         </div>
-
         <div class="brand-text">
-          <strong>Jhonatan Peterson</strong>
+          <strong>JHONATAN PETERSON</strong>
           <span>Gestor Imobiliário • curadoria, estratégia e negociação premium.</span>
         </div>
       </div>
@@ -889,149 +1001,178 @@
       <nav class="nav">
         <a class="btn" href="#propriedades">Propriedades</a>
         <a class="btn" href="#diferenciais">Diferenciais</a>
-        <a class="btn primary" href="https://wa.me/5511993747595" target="_blank" rel="noopener noreferrer">Falar
+        <a class="btn btn-primary" href="https://wa.me/5511993747595" target="_blank" rel="noopener noreferrer">Falar
           agora</a>
       </nav>
     </header>
 
-    <section class="hero" id="contato">
+    <section class="hero" id="hero">
       <div class="kicker">Alto padrão • Confiança • Conversão</div>
 
-      <div class="hero-head">
-        <div style="min-width:0;">
-          <h1>
-            Seu próximo imóvel <span class="accent">alto padrão</span> com curadoria e negociação no nível certo.
-          </h1>
-          <p class="lead">
-            Atendimento 1:1, seleção criteriosa e estratégia de compra/venda para reduzir ruído e acelerar decisão.
-            Aqui não tem tour infinito — tem direcionamento com propósito.
-          </p>
-        </div>
-      </div>
+      <h1>
+        Seu próximo imóvel <span class="accent">alto padrão</span> com curadoria e negociação no nível certo.
+      </h1>
+      <p class="lead">
+        Atendimento 1:1, seleção criteriosa e estratégia de compra/venda para reduzir ruído e acelerar decisão.
+        Aqui não tem tour infinito — tem direcionamento com propósito.
+      </p>
 
       <div class="hero-cta">
-        <a class="btn primary" href="https://wa.me/5511993747595" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://wa.me/5511993747595" target="_blank" rel="noopener noreferrer">
           Falar no WhatsApp
         </a>
         <a class="btn" href="#propriedades">Ver propriedades</a>
         <a class="btn" href="#diferenciais">Ver como funciona</a>
       </div>
     </section>
+
     <div class="pill-row">
-      <div class="pill"><strong>Curadoria de imóveis</strong><br />Só o que faz sentido pro seu perfil.</div>
-      <div class="pill"><strong>Negociação estratégica</strong><br />Valor, timing e segurança no contrato.</div>
-      <div class="pill"><strong>Atendimento premium</strong><br />Rápido, direto, sem enrolação.</div>
+      <div class="pill">
+        <strong>Curadoria de imóveis</strong>
+        <span>Só o que faz sentido pro seu perfil.</span>
+      </div>
+      <div class="pill">
+        <strong>Negociação estratégica</strong>
+        <span>Valor, timing e segurança no contrato.</span>
+      </div>
+      <div class="pill">
+        <strong>Atendimento premium</strong>
+        <span>Rápido, direto, sem enrolação.</span>
+      </div>
     </div>
 
-    <p class="micro">
-      KPI simples: <strong>menos visitas</strong>, <strong>mais assertividade</strong>, <strong>fechamento mais
-        rápido</strong>.
+    <p style="text-align: center; margin: 16px 0 24px; opacity: 0.7; font-size: 14px;">
+      <strong style="color: var(--gold-1);">Menos visitas</strong>, <strong style="color: var(--gold-1);">mais
+        assertividade</strong>, <strong style="color: var(--gold-1);">fechamento mais rápido</strong>.
     </p>
-    <section class="grid" id="propriedades">
-      <div class="card">
-        <div class="tag">Propriedades em destaque</div>
+
+    <section class="card" id="propriedades">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span class="tag">Propriedades em destaque</span>
+      </div>
+      <div class="section-title">
         <h2>Curadoria</h2>
         <p>Clique para ver detalhes e fotos.</p>
+      </div>
 
-        <div class="props">
-          <!-- Cards dinâmicos serão adicionados aqui -->
-        </div>
+      <div class="props">
+        <!-- Cards dinâmicos serão adicionados aqui -->
       </div>
     </section>
 
 
     <div class="card">
-      <div class="tag">Atalho rápido</div>
-      <h2>Quer a lista completa?</h2>
-      <p>Me diga bairro + metragem + faixa de valor. Eu retorno com as melhores opções disponíveis.</p>
-      <a class="btn primary"
-        href="https://wa.me/5511993747595?text=Quero%20a%20lista%20completa%20de%20propriedades.%20Meu%20perfil%3A%20"
-        target="_blank" rel="noopener noreferrer" style="margin-top: 12px; display:inline-block;">
-        Pedir lista completa no WhatsApp
-      </a>
+      <div style="text-align: center; margin-bottom: 16px;">
+        <span class="tag">Atalho rápido</span>
+      </div>
+      <h2 style="text-align: center; margin-bottom: 12px; font-size: 22px;">Quer a lista completa?</h2>
+      <p style="text-align: center; opacity: 0.8; margin-bottom: 20px;">
+        Me diga bairro + metragem + faixa de valor. Eu retorno com as melhores opções disponíveis.
+      </p>
+      <div style="text-align: center;">
+        <a class="btn btn-primary"
+          href="https://wa.me/5511993747595?text=Quero%20a%20lista%20completa%20de%20propriedades.%20Meu%20perfil%3A%20"
+          target="_blank" rel="noopener noreferrer">
+          Pedir lista completa no WhatsApp
+        </a>
+      </div>
     </div>
 
-    <section class="grid" id="diferenciais">
-      <div class="card">
-        <div class="tag">O que você recebe</div>
-        <h1>Processo enxuto. Experiência premium. Resultado.</h1>
-        <ul class="list">
-          <li><span class="dot"></span><span><strong>Briefing inteligente:</strong> alinhamento de perfil,
-              região,
-              orçamento e timing.</span></li>
-          <li><span class="dot"></span><span><strong>Seleção estratégica:</strong> opções filtradas por
-              liquidez,
-              qualidade e custo-benefício real.</span></li>
-          <li><span class="dot"></span><span><strong>Visitas objetivas:</strong> roteiro eficiente para
-              decidir com
-              confiança.</span></li>
-          <li><span class="dot"></span><span><strong>Fechamento seguro:</strong> suporte na negociação e no
-              caminho até
-              a assinatura.</span></li>
-        </ul>
+    <section class="card" id="diferenciais">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="tag">O que você recebe</span>
       </div>
+      <h1 style="text-align: center; font-size: clamp(22px, 4vw, 28px); margin-bottom: 24px; line-height: 1.3;">
+        Processo enxuto. Experiência premium. Resultado.
+      </h1>
+      <ul class="list">
+        <li>
+          <span class="dot"></span>
+          <span><strong>Briefing inteligente:</strong> alinhamento de perfil, região, orçamento e timing.</span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span><strong>Seleção estratégica:</strong> opções filtradas por liquidez, qualidade e custo-benefício
+            real.</span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span><strong>Visitas objetivas:</strong> roteiro eficiente para decidir com confiança.</span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span><strong>Fechamento seguro:</strong> suporte na negociação e no caminho até a assinatura.</span>
+        </li>
+      </ul>
+    </section>
 
-      <div class="card">
-        <h2 class="depo-tag">• Depoimentos</h2>
-        <div class="card">
-          <strong class="quote">
-            "A curadoria economizou semanas. Visitamos poucas opções, todas certeiras.
-            Negociação firme e transparente — fechamos com segurança."
-          </strong>
-        </div>
-        <div class="card"><strong class="quote">
-            "Fazer negócios com o Jhonatan é sempre a melhor escolha! É o segundo imóvel que compramos com
-            ele para
-            investimento e ele sempre é certeiro!
-            Sem dúvidas o melhor corretor de SP!"
-          </strong></div>
-        <div class="card"><strong class="quote">
-            "Com o Jhonatan nós sempre fechamos negócio sem medo e com a certeza de que é boa escolha!
-            Obrigado
-            por nos ajudar mais uma vez a encontrar o lar da nossa família!"
-          </strong></div>
+    <section class="card">
+      <h2 class="depo-tag">• Depoimentos</h2>
+      <div class="quote">
+        "A curadoria economizou semanas. Visitamos poucas opções, todas certeiras.
+        Negociação firme e transparente — fechamos com segurança."
+      </div>
+      <div class="quote">
+        "Fazer negócios com o Jhonatan é sempre a melhor escolha! É o segundo imóvel que compramos com ele para
+        investimento e ele sempre é certeiro!
+        Sem dúvidas o melhor corretor de SP!"
+      </div>
+      <div class="quote">
+        "Com o Jhonatan nós sempre fechamos negócio sem medo e com a certeza de que é boa escolha!
+        Obrigado por nos ajudar mais uma vez a encontrar o lar da nossa família!"
       </div>
     </section>
 
     <div class="foot">
       <a class="back" href="#" onclick="return false;">← voltar</a>
       <span>Jhonatan Peterson • Imobiliária de Alto Padrão • <span
-          style="color: rgba(255,242,201,.90); font-weight:800;">Golden premium</span>.</span>
+          style="color: var(--gold-1); font-weight: 700;">Golden premium</span>.</span>
     </div>
 
-    <!-- Modal Structure - Moved outside nested containers -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modalTitle" style="color: #fff; text-align: center; margin-bottom: 20px;"></h2>
-        <p id="modalDescription" style="color: #fff; white-space: pre-line; margin-bottom: 20px;"></p>
-        <div class="modal-images" id="modalImages">
-          <!-- Images will be populated by JavaScript -->
-        </div>
+  </div><!-- /.wrap -->
+
+  <!-- Modal Structure -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div class="modal-images" id="modalImages">
+        <!-- Images will be populated by JavaScript -->
       </div>
     </div>
+  </div>
 
-    <div id="fullscreenViewer" class="modal-fullscreen" style="display: none;">
-      <img id="fullscreenImage" src="" alt="Fullscreen" />
+  <div id="fullscreenViewer" class="modal-fullscreen">
+    <img id="fullscreenImage" src="" alt="Fullscreen" />
+  </div>
+
+  <!-- Modal for full description -->
+  <div id="descriptionModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="descClose">&times;</span>
+      <h2 id="descTitle"></h2>
+      <div id="descText" style="color: #fff; white-space: pre-line; line-height: 1.7;"></div>
     </div>
+  </div>
 
-    <!-- Modal for full description -->
-    <div id="descriptionModal" class="modal">
-      <div class="modal-content" style="max-width: 600px;">
-        <span class="close" id="descClose">&times;</span>
-        <h2 id="descTitle" style="color: #fff; text-align: center; margin-bottom: 20px;"></h2>
-        <div id="descText" style="color: #fff; white-space: pre-line; line-height: 1.6;"></div>
-      </div>
+  <!-- Back to top button -->
+  <button id="backToTop" class="back-to-top">▲</button>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="privacy.html">Política de Privacidade</a>
+      <a href="terms.html">Termos de Uso</a>
     </div>
+    <p>© 2026 Jhonatan Peterson — Gestor Imobiliário</p>
+  </footer>
 
-    <!-- Back to top button -->
-    <button id="backToTop" class="back-to-top" style="display: none;">▲</button>
+  <script>
+    let propertyData = {};
+    let propertyMap = {};
 
-    <script>
-      let propertyData = {};
-      let propertyMap = {};
-
-      async function boot() {
+    async function boot() {
+      try {
         const res = await fetch("./data/propertyData.json?v=" + Date.now(), { cache: "no-store" });
         propertyData = await res.json();
 
@@ -1040,299 +1181,244 @@
         properties.forEach(p => propertyMap[p.id] = p);
 
         initGallery();
+      } catch (e) {
+        console.error('Error loading properties:', e);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", boot);
+
+    function initGallery() {
+      // Gallery initialization
+    }
+
+    // Modal Elements
+    const modal = document.getElementById('myModal');
+    const modalImagesContainer = document.getElementById('modalImages');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeBtn = document.querySelector('.close');
+    const fullscreenViewer = document.getElementById('fullscreenViewer');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+
+    // Function to open modal with specific property
+    function openModal(propertyId) {
+      const property = propertyData[propertyId];
+      if (!property) {
+        console.error('Property not found:', propertyId);
+        return;
       }
 
-      document.addEventListener("DOMContentLoaded", boot);
+      modalTitle.textContent = property.title;
+      modalDescription.textContent = propertyMap[propertyId] ? propertyMap[propertyId].meta || '' : '';
+      modalImagesContainer.innerHTML = '';
 
-      function initGallery() {
-      }
-    </script>
+      property.images.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = property.title + ' - Imagem ' + (index + 1);
+        img.loading = 'lazy';
+        img.addEventListener('click', () => openFullscreen(src));
+        modalImagesContainer.appendChild(img);
+      });
 
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
 
+    // Function to close modal
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
 
-    <!--// DOM Elements//-->
-    <script>
-      const modal = document.getElementById('myModal');
-      const modalImagesContainer = document.getElementById('modalImages');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDescription = document.getElementById('modalDescription');
-      const closeBtn = document.querySelector('.close');
-      const fullscreenViewer = document.getElementById('fullscreenViewer');
-      const fullscreenImage = document.getElementById('fullscreenImage');
+    // Function to open fullscreen image viewer
+    function openFullscreen(imageSrc) {
+      fullscreenImage.src = imageSrc;
+      fullscreenViewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-      // Function to open modal with specific property
-      function openModal(propertyId) {
-        const property = propertyData[propertyId];
-        if (!property) {
-          console.error('Property not found:', propertyId);
-          return;
-        }
+    // Function to close fullscreen viewer
+    function closeFullscreen() {
+      fullscreenViewer.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
 
-        // Set title
-        modalTitle.textContent = property.title;
-
-        // Set description
-        modalDescription.textContent = propertyMap[propertyId] ? propertyMap[propertyId].meta || '' : '';
-
-        // Clear previous images
-        modalImagesContainer.innerHTML = '';
-
-        // Add images to modal
-        property.images.forEach((src, index) => {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = property.title + ' - Imagem ' + (index + 1);
-          img.loading = 'lazy'; // Lazy loading for performance
-
-          // Add click event for fullscreen view
-          img.addEventListener('click', () => openFullscreen(src));
-
-          modalImagesContainer.appendChild(img);
-        });
-
-        // Show modal
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-      }
-
-      // Function to close modal
-      function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-      }
-
-      // Function to open fullscreen image viewer
-      function openFullscreen(imageSrc) {
-        fullscreenImage.src = imageSrc;
-        fullscreenViewer.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-
-      // Function to close fullscreen viewer
-      function closeFullscreen() {
-        fullscreenViewer.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-
-      // Close modal on button click
+    // Close modal on button click
+    if (closeBtn) {
       closeBtn.addEventListener('click', closeModal);
+    }
 
-      // Close modal on click outside content
-      window.addEventListener('click', (event) => {
-        if (event.target === modal) {
+    // Close modal on click outside content
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+      if (event.target === fullscreenViewer) {
+        closeFullscreen();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (fullscreenViewer.classList.contains('active')) {
+          closeFullscreen();
+        } else if (modal.style.display === 'block') {
           closeModal();
         }
-        if (event.target === fullscreenViewer) {
-          closeFullscreen();
-        }
-      });
-
-      // Close modal on Escape key
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          if (fullscreenViewer.style.display === 'flex') {
-            closeFullscreen();
-          } else if (modal.style.display === 'block') {
-            closeModal();
-          }
-        }
-      });
-
-      // Close fullscreen on click
-      fullscreenViewer.addEventListener('click', closeFullscreen);
-
-      // Description modal
-      const descModal = document.getElementById('descriptionModal');
-      const descClose = document.getElementById('descClose');
-      const descTitle = document.getElementById('descTitle');
-      const descText = document.getElementById('descText');
-
-      function openDescModal(title, text) {
-        descTitle.textContent = title;
-        descText.textContent = text;
-        descModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
       }
+    });
 
-      function closeDescModal() {
-        descModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
+    // Close fullscreen on click
+    fullscreenViewer.addEventListener('click', closeFullscreen);
 
+    // Description modal
+    const descModal = document.getElementById('descriptionModal');
+    const descClose = document.getElementById('descClose');
+    const descTitle = document.getElementById('descTitle');
+    const descText = document.getElementById('descText');
+
+    function openDescModal(title, text) {
+      descTitle.textContent = title;
+      descText.textContent = text;
+      descModal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDescModal() {
+      descModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    if (descClose) {
       descClose.addEventListener('click', closeDescModal);
+    }
 
-      window.addEventListener('click', (event) => {
-        if (event.target === descModal) {
-          closeDescModal();
-        }
+    window.addEventListener('click', (event) => {
+      if (event.target === descModal) {
+        closeDescModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && descModal.style.display === 'block') {
+        closeDescModal();
+      }
+    });
+
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    function updateBackToTop() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', updateBackToTop);
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    console.log('Modal system initialized successfully');
+  </script>
+  <script>
+    (function () {
+      const container = document.querySelector('#propriedades .props');
+      if (!container) return;
+
+      const existing = new Set();
+      container.querySelectorAll('[onclick*="openModal("]').forEach((el) => {
+        const on = el.getAttribute('onclick') || '';
+        const m = on.match(/openModal\('([^']+)'\)/);
+        if (m && m[1]) existing.add(m[1]);
       });
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && descModal.style.display === 'block') {
-          closeDescModal();
-        }
-      });
+      const waA = document.querySelector('a[href^="https://wa.me/"]');
+      const waNumber = (waA?.href.match(/wa\.me\/(\d+)/)?.[1]) || '5511993747595';
 
-      // Back to top button
-      const backToTopBtn = document.getElementById('backToTop');
+      const ID_ALIAS = {};
 
-      function updateBackToTop() {
-        const isModalOpen = modal.style.display === 'block';
-        const isDescModalOpen = descModal.style.display === 'block';
-        const modalScrollTop = isModalOpen ? modal.scrollTop : 0;
-        const descModalScrollTop = isDescModalOpen ? descModal.scrollTop : 0;
-        if (window.pageYOffset > 300 || modalScrollTop > 300 || descModalScrollTop > 300) {
-          backToTopBtn.style.display = 'block';
-        } else {
-          backToTopBtn.style.display = 'none';
+      function normalize(json) {
+        if (json && Array.isArray(json.properties)) return json.properties;
+        if (Array.isArray(json)) return json;
+        if (json && typeof json === 'object') {
+          return Object.entries(json).map(([id, v]) => ({
+            id,
+            name: v.name || v.title || id,
+            price: v.price || '',
+            category: v.category || v.location || '',
+            coverImage: v.coverImage || '',
+            gallery: v.gallery || v.images || []
+          }));
         }
+        return [];
       }
 
-      window.addEventListener('scroll', updateBackToTop);
-      modal.addEventListener('scroll', updateBackToTop);
-      descModal.addEventListener('scroll', updateBackToTop);
+      function safeSrc(s) {
+        return String(s || '').replace(/ /g, '%20');
+      }
 
-      backToTopBtn.addEventListener('click', () => {
-        if (modal.style.display === 'block') {
-          // Scroll modal
-          modal.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+      function buildCard(p) {
+        const idFromJson = String(p.id || '').trim();
+        if (!idFromJson) return null;
+
+        const modalId = ID_ALIAS[idFromJson] || idFromJson;
+        if (existing.has(modalId)) return null;
+
+        const name = p.name || p.title || modalId;
+        const category = p.category || p.location || '';
+        const fullDescription = p.meta || category;
+        const shortDescription = fullDescription.split('.')[0] + '.' || fullDescription;
+        const price = p.price || '';
+        const cover = p.coverImage || (p.gallery && p.gallery[0]) || (p.images && p.images[0]) || '';
+        const msg = p.whatsappMessage || ('Quero detalhes de: ' + name);
+
+        const article = document.createElement('article');
+        article.className = 'prop';
+        article.innerHTML = `
+          <div class="prop-media">
+            <img src="${safeSrc(cover)}" alt="${name}">
+          </div>
+          <div class="prop-body">
+            <h3 class="prop-title">${name}</h3>
+            <p class="prop-meta">${shortDescription}</p>
+            <div class="prop-price">${price}</div>
+            <div class="prop-actions">
+              <a class="btn btn-primary" href="https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener noreferrer">Solicitar detalhes</a>
+              <a class="btn" href="#" onclick="openDescModal('${name.replace(/'/g, "\\'")}', '${fullDescription.replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/"/g, '\\"')}'); return false;">Ver descrição</a>
+              <a class="btn" href="#" onclick="openModal('${modalId.replace(/'/g, "\\'")}'); return false;">Ver fotos</a>
+            </div>
+          </div>
+        `;
+        return article;
+      }
+
+      fetch('./data/properties.json?v=' + Date.now(), { cache: 'no-store' })
+        .then((r) => {
+          if (!r.ok) throw new Error('Não consegui carregar ./data/properties.json');
+          return r.json();
+        })
+        .then((json) => {
+          const props = normalize(json);
+          const frag = document.createDocumentFragment();
+          props.forEach((p) => {
+            const card = buildCard(p);
+            if (card) frag.appendChild(card);
           });
-        } else if (descModal.style.display === 'block') {
-          // Scroll description modal
-          descModal.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        } else {
-          // Scroll main page
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        }
-      });
-
-      console.log('Modal system initialized successfully');
-    </script>
-    <script>
-      (function () {
-        const container = document.querySelector('#propriedades .props');
-        if (!container) return;
-
-        // IDs que já existem no HTML (pra não duplicar)
-        const existing = new Set();
-        container.querySelectorAll('[onclick*="openModal("]').forEach((el) => {
-          const on = el.getAttribute('onclick') || '';
-          const m = on.match(/openModal\('([^']+)'\)/);
-          if (m && m[1]) existing.add(m[1]);
-        });
-
-        // WhatsApp (pega do seu próprio HTML; fallback se não achar)
-        const waA = document.querySelector('a[href^="https://wa.me/"]');
-        const waNumber = (waA?.href.match(/wa\.me\/(\d+)/)?.[1]) || '5511993747595';
-
-        // Se o ID do JSON for diferente do ID usado no openModal() do seu HTML,
-        // mapeie aqui (opcional). Ex.: { "fazenda-itapetininga": "fazenda" }
-        const ID_ALIAS = {
-          // "fazenda-itapetininga": "fazenda",
-          // "mansao-emilce-morada-do-sol-1": "morada-do-sol2",
-          // "residencial-morada-do-sol-1": "morada-do-sol"
-        };
-
-        function normalize(json) {
-          // Formato: { "properties": [ ... ] }
-          if (json && Array.isArray(json.properties)) return json.properties;
-
-          // Formato: [ ... ]
-          if (Array.isArray(json)) return json;
-
-          // Formato: { "id": {...} } (mapa)
-          if (json && typeof json === 'object') {
-            return Object.entries(json).map(([id, v]) => ({
-              id,
-              name: v.name || v.title || id,
-              price: v.price || '',
-              category: v.category || v.location || '',
-              coverImage: v.coverImage || '',
-              gallery: v.gallery || v.images || []
-            }));
-          }
-
-          return [];
-        }
-
-        function safeSrc(s) {
-          return String(s || '').replace(/ /g, '%20');
-        }
-
-        function buildCard(p) {
-          const idFromJson = String(p.id || '').trim();
-          if (!idFromJson) return null;
-
-          // ID usado no openModal
-          const modalId = ID_ALIAS[idFromJson] || idFromJson;
-
-          // Se já tem card com esse modalId no HTML, não cria outro
-          if (existing.has(modalId)) return null;
-
-          const name = p.name || p.title || modalId;
-          const category = p.category || p.location || '';
-          const fullDescription = p.meta || category;
-          const shortDescription = fullDescription.split('.')[0] + '.' || fullDescription;
-          const price = p.price || '';
-          const cover = p.coverImage || (p.gallery && p.gallery[0]) || (p.images && p.images[0]) || '';
-          const msg = p.whatsappMessage || ('Quero detalhes de: ' + name);
-
-          const article = document.createElement('article');
-          article.className = 'prop';
-          article.innerHTML = `
-                <div class="prop-media">
-                  <img src="${safeSrc(cover)}" alt="${name}">
-                </div>
-                <div class="prop-body">
-                  <h1 class="prop-title">${name}</h1>
-                  <div class="prop-meta">${shortDescription}</div>
-                  <h2 class="prop-price">${price}</h2>
-                  <div class="prop-actions">
-                    <a class="btn primary"
-                      href="https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}"
-                      target="_blank" rel="noopener noreferrer">
-                      Solicitar detalhes
-                    </a>
-                    <a class="btn" href="#" onclick="openDescModal('${name.replace(/'/g, "\\'")}', '${fullDescription.replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/"/g, '\\"')}'); return false;">
-                      Ver descrição completa
-                    </a>
-                    <a class="btn" href="#" onclick="openModal('${modalId.replace(/'/g, "\\'")}'); return false;">
-                      Ver mais fotos
-                    </a>
-                  </div>
-                </div>
-              `;
-          return article;
-        }
-
-        fetch('./data/properties.json?v=' + Date.now(), { cache: 'no-store' })
-          .then((r) => {
-            if (!r.ok) throw new Error('Não consegui carregar ./data/properties.json');
-            return r.json();
-          })
-          .then((json) => {
-            const props = normalize(json);
-
-            const frag = document.createDocumentFragment();
-            props.forEach((p) => {
-              const card = buildCard(p);
-              if (card) frag.appendChild(card);
-            });
-
-            container.appendChild(frag);
-          })
-          .catch((e) => console.error(e));
-      })();
-    </script>
-
+          container.appendChild(frag);
+        })
+        .catch((e) => console.error(e));
+    })();
+  </script>
 </body>
 
 </html>
