@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jhonatan Peterson — Imobiliária de Alto Padrão</title>
   <meta name="description" content="Imóveis de alto padrão com curadoria, estratégia e atendimento premium." />
-  <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-  <link rel="shortcut icon" href="./assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="./assets/ui/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./assets/ui/favicon.svg" />
+  <link rel="shortcut icon" href="./assets/ui/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="JP IMÓVEIS" />
-  <link rel="manifest" href="./assets/site.webmanifest" />
+  <link rel="manifest" href="./assets/ui/site.webmanifest" />
 
   <style>
     /* =========================
@@ -144,7 +144,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      background-image: url("./assets/imobiliariabg.webp");
+      background-image: url("./assets/ui/imobiliariabg.webp");
     }
 
     h1,
@@ -175,7 +175,7 @@
 
     .wrap {
       width: auto;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -230,7 +230,7 @@
       padding: 8px 16px;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px inset #f9e6b8;
     }
 
     .nav-container nav a:hover {
@@ -243,16 +243,24 @@
   ========================= */
 
     .logo {
-      text-align: center;
-      margin: 30px 0;
-    }
 
-    .logo img {
-      max-width: 280px;
-      width: 100%;
+      max-width: 100vw;
+      width: 80%;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 10px double #b4a981;
+      margin: auto;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 10px double rgb(204, 172, 69);
+      backdrop-filter: blur(5px) saturate(4);
+
     }
 
     /* =========================
@@ -266,7 +274,7 @@
       padding: 24px;
       border-radius: 20px;
       background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(246, 214, 146, 0.3);
+      border: 1px inset #f9e6b8;
       backdrop-filter: blur(12px);
       margin-bottom: 24px;
     }
@@ -280,13 +288,14 @@
     }
 
     .mark {
-      border-radius: 50%;
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--gold-2);
-      padding: 5px;
-      background: rgba(212, 178, 106, 0.1);
+      border: 3px outset #f9e6b8;
+      padding: 10px;
+      background: black;
+      box-shadow: 0 0 20px inset black;
     }
 
     .mark img {
@@ -334,7 +343,7 @@
       font-size: 14px;
       text-decoration: none;
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px inset #f9e6b8;
       background: rgba(255, 255, 255, 0.08);
       transition: all 0.3s ease;
       cursor: pointer;
@@ -368,9 +377,8 @@
       padding: 30px;
       border-radius: 24px;
       background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(212, 178, 106, 0.25);
+      border: 1px inset #f9e6b8;
       margin-bottom: 24px;
-      backdrop-filter: blur(10px);
     }
 
     .kicker {
@@ -425,7 +433,7 @@
       padding: 20px;
       border-radius: 16px;
       background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(212, 178, 106, 0.25);
+      border: 1px inset #f9e6b8;
       font-size: 14px;
       text-align: center;
       backdrop-filter: blur(8px);
@@ -458,7 +466,7 @@
       padding: 24px;
       border-radius: 20px;
       background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(212, 178, 106, 0.2);
+      border: 1px inset #f9e6b8;
       margin-bottom: 20px;
       backdrop-filter: blur(8px);
     }
@@ -475,6 +483,7 @@
       background: rgba(212, 178, 106, 0.1);
       border-radius: 30px;
       display: inline-block;
+      border: 1px inset #f9e6b8;
     }
 
     .section-title {
@@ -575,7 +584,7 @@
       padding: 24px;
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(212, 178, 106, 0.25);
+      border: 1px inset #f9e6b8;
       transition: all 0.3s ease;
     }
 
@@ -633,8 +642,11 @@
     .prop-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
+      gap: 15px;
+      flex-direction: row;
+      position: relative;
+      margin: auto;
+      height: 5vh;
     }
 
     .prop-actions .btn {
@@ -751,7 +763,7 @@
       width: 90%;
       max-width: 1100px;
       border-radius: 20px;
-      border: 1px solid rgba(212, 178, 106, 0.3);
+      border: 1px inset #f9e6b8;
     }
 
     .close {
@@ -829,6 +841,71 @@
       max-height: 90%;
       object-fit: contain;
       border-radius: 8px;
+      cursor: default;
+      user-select: none;
+    }
+
+    /* =========================
+  FULLSCREEN NAVIGATION
+  ========================= */
+
+    .fs-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      border: 1px inset #f9e6b8;
+      font-size: 36px;
+      line-height: 1;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2001;
+      border-radius: 50%;
+      transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+      user-select: none;
+    }
+
+    .fs-arrow:hover {
+      background: rgba(212, 178, 106, 0.5);
+      border-color: var(--gold-2);
+    }
+
+    .fs-prev {
+      left: 20px;
+    }
+
+    .fs-next {
+      right: 20px;
+    }
+
+    .fs-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      border: 1px inset #f9e6b8;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2001;
+      border-radius: 50%;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+
+    .fs-close:hover {
+      background: rgba(212, 178, 106, 0.5);
+      border-color: var(--gold-2);
     }
 
     #descriptionModal .modal-content {
@@ -921,6 +998,20 @@
       .modal-images img {
         height: 150px;
       }
+
+      .fs-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 28px;
+      }
+
+      .fs-prev {
+        left: 10px;
+      }
+
+      .fs-next {
+        right: 10px;
+      }
     }
 
     @media (min-width: 960px) {
@@ -928,6 +1019,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-top: 30px;
+        border: 1px inset #f9e6b8;
       }
 
       .brand {
@@ -968,7 +1061,7 @@
   <header class="header">
     <div class="nav-container">
       <div class="jp-icon">
-        <img src="./assets/jp-icon.png" alt="JP Icon" />
+        <img src="./assets/ui/jp-icon.png" alt="JP Icon" />
         <span>— Bem Vindo(a)! Sinta-se em casa!</span>
       </div>
       <nav>
@@ -983,14 +1076,14 @@
 
     <!-- LOGO -->
     <div class="logo" aria-label="Logo Jhonatan Peterson">
-      <img src="./assets/jhonatanlogo.webp" alt="Jhonatan Peterson" />
+      <img src="./assets/ui/jhonatanlogo.webp" alt="Jhonatan Peterson" />
     </div>
 
     <!-- CARD PRINCIPAL -->
     <header class="brand-card" id="contato">
       <div class="brand">
         <div class="mark">
-          <img src="./assets/jp-icon.png" alt="JP Icon" />
+          <img src="./assets/ui/jp-icon.png" alt="JP Icon" />
         </div>
         <div class="brand-text">
           <strong>JHONATAN PETERSON</strong>
@@ -1088,11 +1181,13 @@
       <ul class="list">
         <li>
           <span class="dot"></span>
-          <span><strong>Briefing inteligente:</strong> alinhamento de perfil, região, orçamento e timing.</span>
+          <span><strong>Briefing inteligente:</strong> alinhamento de perfil, região, orçamento e
+            timing.</span>
         </li>
         <li>
           <span class="dot"></span>
-          <span><strong>Seleção estratégica:</strong> opções filtradas por liquidez, qualidade e custo-benefício
+          <span><strong>Seleção estratégica:</strong> opções filtradas por liquidez, qualidade e
+            custo-benefício
             real.</span>
         </li>
         <li>
@@ -1101,7 +1196,8 @@
         </li>
         <li>
           <span class="dot"></span>
-          <span><strong>Fechamento seguro:</strong> suporte na negociação e no caminho até a assinatura.</span>
+          <span><strong>Fechamento seguro:</strong> suporte na negociação e no caminho até a
+            assinatura.</span>
         </li>
       </ul>
     </section>
@@ -1143,8 +1239,12 @@
     </div>
   </div>
 
+  <!-- Fullscreen Viewer with Navigation -->
   <div id="fullscreenViewer" class="modal-fullscreen">
+    <button class="fs-arrow fs-prev" id="fsPrev">&#8249;</button>
     <img id="fullscreenImage" src="" alt="Fullscreen" />
+    <button class="fs-arrow fs-next" id="fsNext">&#8250;</button>
+    <button class="fs-close" id="fsClose">&times;</button>
   </div>
 
   <!-- Modal for full description -->
@@ -1170,6 +1270,8 @@
   <script>
     let propertyData = {};
     let propertyMap = {};
+    let currentImages = [];
+    let currentImageIndex = 0;
 
     async function boot() {
       try {
@@ -1189,7 +1291,25 @@
     document.addEventListener("DOMContentLoaded", boot);
 
     function initGallery() {
-      // Gallery initialization
+      setupSlideshows();
+    }
+
+    function setupSlideshows() {
+      if (!Object.keys(propertyData).length) return;
+      document.querySelectorAll('.prop[data-property-id]').forEach(function (card) {
+        if (card._slideshowStarted) return;
+        const id = card.dataset.propertyId;
+        const data = propertyData[id];
+        if (!data || !data.images || data.images.length < 2) return;
+        const img = card.querySelector('.prop-media img');
+        if (!img) return;
+        card._slideshowStarted = true;
+        let idx = 0;
+        setInterval(function () {
+          idx = (idx + 1) % data.images.length;
+          img.src = data.images[idx].replace(/ /g, '%20');
+        }, 2000);
+      });
     }
 
     // Modal Elements
@@ -1210,15 +1330,18 @@
       }
 
       modalTitle.textContent = property.title;
-      modalDescription.textContent = propertyMap[propertyId] ? propertyMap[propertyId].meta || '' : '';
+      modalDescription.textContent = property.description || (propertyMap[propertyId] ? propertyMap[propertyId].meta || '' : '');
       modalImagesContainer.innerHTML = '';
+
+      // Store images for fullscreen navigation
+      currentImages = property.images;
 
       property.images.forEach((src, index) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = property.title + ' - Imagem ' + (index + 1);
         img.loading = 'lazy';
-        img.addEventListener('click', () => openFullscreen(src));
+        img.addEventListener('click', () => openFullscreen(index));
         modalImagesContainer.appendChild(img);
       });
 
@@ -1232,11 +1355,39 @@
       document.body.style.overflow = 'auto';
     }
 
+    // Fullscreen navigation helpers
+    function updateFsArrows() {
+      const prev = document.getElementById('fsPrev');
+      const next = document.getElementById('fsNext');
+      prev.style.opacity = currentImageIndex > 0 ? '1' : '0.25';
+      prev.style.pointerEvents = currentImageIndex > 0 ? 'auto' : 'none';
+      next.style.opacity = currentImageIndex < currentImages.length - 1 ? '1' : '0.25';
+      next.style.pointerEvents = currentImageIndex < currentImages.length - 1 ? 'auto' : 'none';
+    }
+
+    function prevImage() {
+      if (currentImageIndex > 0) {
+        currentImageIndex--;
+        fullscreenImage.src = currentImages[currentImageIndex];
+        updateFsArrows();
+      }
+    }
+
+    function nextImage() {
+      if (currentImageIndex < currentImages.length - 1) {
+        currentImageIndex++;
+        fullscreenImage.src = currentImages[currentImageIndex];
+        updateFsArrows();
+      }
+    }
+
     // Function to open fullscreen image viewer
-    function openFullscreen(imageSrc) {
-      fullscreenImage.src = imageSrc;
+    function openFullscreen(index) {
+      currentImageIndex = index;
+      fullscreenImage.src = currentImages[index];
       fullscreenViewer.classList.add('active');
       document.body.style.overflow = 'hidden';
+      updateFsArrows();
     }
 
     // Function to close fullscreen viewer
@@ -1255,12 +1406,43 @@
       if (event.target === modal) {
         closeModal();
       }
+      // Close fullscreen only when clicking the dark overlay (not image/buttons)
       if (event.target === fullscreenViewer) {
         closeFullscreen();
       }
     });
 
-    // Close modal on Escape key
+    // Arrow navigation buttons
+    document.getElementById('fsPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevImage();
+    });
+
+    document.getElementById('fsNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextImage();
+    });
+
+    document.getElementById('fsClose').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeFullscreen();
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    fullscreenViewer.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    fullscreenViewer.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextImage();
+        else prevImage();
+      }
+    }, { passive: true });
+
+    // Keyboard navigation
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         if (fullscreenViewer.classList.contains('active')) {
@@ -1269,10 +1451,11 @@
           closeModal();
         }
       }
+      if (fullscreenViewer.classList.contains('active')) {
+        if (event.key === 'ArrowRight') nextImage();
+        if (event.key === 'ArrowLeft') prevImage();
+      }
     });
-
-    // Close fullscreen on click
-    fullscreenViewer.addEventListener('click', closeFullscreen);
 
     // Description modal
     const descModal = document.getElementById('descriptionModal');
@@ -1377,20 +1560,21 @@
         const name = p.name || p.title || modalId;
         const category = p.category || p.location || '';
         const fullDescription = p.meta || category;
-        const shortDescription = fullDescription.split('.')[0] + '.' || fullDescription;
+        const shortDescription = fullDescription.split('.')[0] + '.';
         const price = p.price || '';
         const cover = p.coverImage || (p.gallery && p.gallery[0]) || (p.images && p.images[0]) || '';
         const msg = p.whatsappMessage || ('Quero detalhes de: ' + name);
 
         const article = document.createElement('article');
         article.className = 'prop';
+        article.dataset.propertyId = modalId;
         article.innerHTML = `
           <div class="prop-media">
             <img src="${safeSrc(cover)}" alt="${name}">
           </div>
           <div class="prop-body">
             <h3 class="prop-title">${name}</h3>
-            <p class="prop-meta">${shortDescription}</p>
+            <p class="prop-meta">${category}</p>
             <div class="prop-price">${price}</div>
             <div class="prop-actions">
               <a class="btn btn-primary" href="https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener noreferrer">Solicitar detalhes</a>
@@ -1415,6 +1599,7 @@
             if (card) frag.appendChild(card);
           });
           container.appendChild(frag);
+          setupSlideshows();
         })
         .catch((e) => console.error(e));
     })();
